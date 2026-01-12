@@ -1,0 +1,322 @@
+/* Inherits variables from /src/style.css */
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.screen {
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.screen.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.screen.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Glass Panel for Setup */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fff;
+}
+
+.glass-panel h2 {
+    color: var(--primary-blue);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.gen-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.gen-option {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gen-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.gen-option input:checked+span {
+    /* Logic handled by native checkbox sticking for now, 
+       but we can style parent if needed with :has in modern browsers */
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-blue);
+}
+
+.large-btn {
+    font-size: 1.5rem;
+    padding: 1rem 4rem;
+    width: auto;
+    display: inline-block;
+}
+
+/* Game Header */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: #333;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Pokemon Image Area */
+.pokemon-display {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.image-wrapper {
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.05), 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 10px solid white;
+    position: relative;
+    overflow: hidden;
+}
+
+#pokemon-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    transition: filter 0.5s ease;
+}
+
+/* Blur Levels */
+.blur-3 {
+    filter: blur(8px);
+}
+
+/* Initial: Colored Blur (Abstract) */
+.blur-2 {
+    filter: blur(4px);
+}
+
+/* Hint 1: Clearer Blur */
+.blur-1 {
+    filter: blur(2px);
+}
+
+/* Hint 2: Very Clear Blur */
+.blur-0 {
+    filter: blur(0);
+}
+
+/* Win: Full Color */
+
+/* Win */
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Word Display */
+.word-display {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    min-height: 60px;
+}
+
+.syllable-box {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid #eee;
+}
+
+/* Keyboard / Choice Board */
+.keyboard-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+}
+
+.key-btn {
+    background: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    box-shadow: 0 4px 0 #ddd, 0 5px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.1s;
+    font-family: inherit;
+}
+
+.key-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #ddd, 0 10px 20px rgba(0, 0, 0, 0.1);
+    color: var(--primary-blue);
+}
+
+.key-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 #ddd;
+}
+
+.key-btn.wrong {
+    background: #ffdbdb;
+    color: #d32f2f;
+    box-shadow: none;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.key-btn.correct {
+    background: #d4edda;
+    color: #155724;
+    box-shadow: none;
+    pointer-events: none;
+    transform: scale(0.95);
+}
+
+/* Home Button */
+.home-btn {
+    position: absolute;
+    top: 3rem;
+    left: 5%;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal */
+.modal.hidden {
+    display: none;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.secondary-btn {
+    background: #eee;
+    color: #555;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.secondary-btn:hover {
+    background: #ddd;
+}

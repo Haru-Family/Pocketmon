@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Hangman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css"> <!-- Global Styles -->
+    <link rel="stylesheet" href="style.css"> <!-- Game Specific Styles -->
+</head>
+
+<body>
+    <header>
+        <div class="title-container">
+            <h1>포켓몬 이름 맞추기</h1>
+        </div>
+        <a href="/" class="home-btn">🏠 홈으로</a>
+    </header>
+
+    <main class="game-container">
+        <!-- Setup Screen (Generation Selection) -->
+        <div id="setup-screen" class="screen active">
+            <div class="card glass-panel">
+                <h2>세대를 선택해주세요!</h2>
+                <p>어떤 포켓몬 친구들을 만날까요?</p>
+
+                <div class="gen-selector">
+                    <label class="gen-option"><input type="checkbox" value="1" checked> 1세대 (Kanto)</label>
+                    <label class="gen-option"><input type="checkbox" value="2"> 2세대 (Johto)</label>
+                    <label class="gen-option"><input type="checkbox" value="3"> 3세대 (Hoenn)</label>
+                    <label class="gen-option"><input type="checkbox" value="4"> 4세대 (Sinnoh)</label>
+                    <label class="gen-option"><input type="checkbox" value="5"> 5세대 (Unova)</label>
+                    <label class="gen-option"><input type="checkbox" value="6"> 6세대 (Kalos)</label>
+                    <label class="gen-option"><input type="checkbox" value="7"> 7세대 (Alola)</label>
+                    <label class="gen-option"><input type="checkbox" value="8"> 8세대 (Galar)</label>
+                </div>
+
+                <button id="start-btn" class="play-btn large-btn">게임 시작!</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="lives-container">
+                    <span>❤️ 남은 기회:</span>
+                    <span id="lives-display">3</span>
+                </div>
+                <div class="score-container">
+                    <span>⭐ 점수:</span>
+                    <span id="score-display">0</span>
+                </div>
+            </div>
+
+            <div class="pokemon-display">
+                <div class="image-wrapper">
+                    <img id="pokemon-img" draggable="false" alt="Pokemon">
+                    <div id="loading-spinner" class="spinner hidden"></div>
+                </div>
+            </div>
+
+            <div class="word-display" id="word-container">
+                <!-- Blanks will go here (e.g., _ _ _) -->
+            </div>
+
+            <div class="keyboard-area" id="keyboard-container">
+                <!-- Syllable buttons will go here -->
+            </div>
+
+            <div id="message-area" class="message hidden"></div>
+        </div>
+
+        <!-- Game Over / Win Modal -->
+        <div id="result-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2 id="result-title">결과</h2>
+                <p id="result-message">메시지</p>
+                <div class="pokemon-reveal">
+                    <img id="reveal-img" alt="Pokemon">
+                    <h3 id="reveal-name">이름</h3>
+                </div>
+                <button id="next-btn" class="play-btn">다음 문제 ➡️</button>
+                <button id="quit-btn" class="secondary-btn">그만하기</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

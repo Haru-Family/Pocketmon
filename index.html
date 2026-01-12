@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokémon Game Hub</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+  <div class="bg-animation" id="bg-animation">
+    <!-- JS will add falling Pokeballs here -->
+  </div>
+
+  <header>
+    <div class="title-container">
+      <h1>포켓몬 게임 모음!</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="games-grid">
+      <!-- Hangman Game -->
+      <article class="game-card">
+        <div class="card-icon">
+          <img src="/public/assets/hangman_icon.png" alt="Pikachu Hangman">
+        </div>
+        <div class="card-content">
+          <h2>Pokémon Hangman</h2>
+          <p>포켓몬의 이름을 맞추는 게임! 피카츄와 함께 글자를 찾아봐요!</p>
+          <a href="/games/hangman/index.html" class="play-btn">게임 시작!</a>
+        </div>
+      </article>
+
+      <!-- Cry Quiz -->
+      <article class="game-card">
+        <div class="card-icon">
+          <img src="/public/assets/cry_quiz_icon.png" alt="Jigglypuff Quiz">
+        </div>
+        <div class="card-content">
+          <h2>Cry Quiz</h2>
+          <p>누구의 목소리일까요? 귀를 기울이고 맞춰보세요!</p>
+          <a href="/games/cry-quiz/index.html" class="play-btn">게임 시작!</a>
+        </div>
+      </article>
+
+      <!-- Card Flip -->
+      <article class="game-card">
+        <div class="card-icon">
+          <img src="/public/assets/card_flip_icon.png" alt="Card Flip">
+        </div>
+        <div class="card-content">
+          <h2>Card Flip</h2>
+          <p>같은 포켓몬을 찾아라! 기억력을 쑥쑥 키워봐요!</p>
+          <a href="/games/card-flip/index.html" class="play-btn">게임 시작!</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

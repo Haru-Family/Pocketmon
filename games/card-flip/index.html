@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Card Flip</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css"> <!-- Global Styles -->
+    <link rel="stylesheet" href="style.css"> <!-- Game Specific Styles -->
+</head>
+
+<body>
+    <header>
+        <div class="title-container">
+            <h1>포켓몬 카드 뒤집기</h1>
+        </div>
+        <a href="/" class="home-btn">🏠 홈으로</a>
+    </header>
+
+    <main class="game-container">
+        <!-- Setup Screen -->
+        <div id="setup-screen" class="screen active">
+            <div class="card glass-panel">
+                <h2>몇 쌍으로 할까요?</h2>
+                <p>1세대 포켓몬 친구들을 찾아보세요!</p>
+
+                <div class="pair-selector">
+                    <label class="pair-option"><input type="radio" name="pairs" value="5" checked> 5쌍 (10장)</label>
+                    <label class="pair-option"><input type="radio" name="pairs" value="6"> 6쌍 (12장)</label>
+                    <label class="pair-option"><input type="radio" name="pairs" value="7"> 7쌍 (14장)</label>
+                    <label class="pair-option"><input type="radio" name="pairs" value="8"> 8쌍 (16장)</label>
+                </div>
+
+                <button id="start-btn" class="play-btn large-btn">게임 시작!</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="timer-container">
+                    <span>⏱️ 시간:</span>
+                    <span id="timer-display">00:00</span>
+                </div>
+                <div class="moves-container">
+                    <span>👆 횟수:</span>
+                    <span id="moves-display">0</span>
+                </div>
+            </div>
+
+            <div id="game-board" class="game-board">
+                <!-- Cards will be injected here -->
+            </div>
+        </div>
+
+        <!-- Win Modal -->
+        <div id="result-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>축하합니다! 🎉</h2>
+                <p>모든 포켓몬 친구들을 찾았어요!</p>
+                <div class="stats">
+                    <p>걸린 시간: <span id="final-time">00:00</span></p>
+                    <p>뒤집은 횟수: <span id="final-moves">0</span></p>
+                </div>
+                <button id="restart-btn" class="play-btn">다시 하기 🔄</button>
+                <button id="quit-btn" class="secondary-btn">그만하기</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
